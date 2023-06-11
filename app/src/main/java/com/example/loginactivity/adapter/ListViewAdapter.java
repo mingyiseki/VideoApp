@@ -73,8 +73,7 @@ public class ListViewAdapter extends ArrayAdapter<Video> {
         if (orientationLandscape == ORIENTATION_LANDSCAPE) {
             //缩小图片
             //设置图片的位置
-            ViewGroup.MarginLayoutParams margin9 = new ViewGroup.MarginLayoutParams(
-                    imageView.getLayoutParams());
+            ViewGroup.MarginLayoutParams margin9 = new ViewGroup.MarginLayoutParams(imageView.getLayoutParams());
             margin9.setMargins(5, 5, 5, 5);//在左边距400像素，顶边距10像素的位置显示图片
             LinearLayout.LayoutParams layoutParams9 = new LinearLayout.LayoutParams(margin9);
             layoutParams9.height = 200;//设置图片的高度

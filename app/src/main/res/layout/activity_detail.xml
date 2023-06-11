@@ -17,8 +17,7 @@
         android:layout_gravity="center"
         android:text="视频标题"
         android:textColor="@color/bg_black"
-        android:textSize="@dimen/title">
-    </TextView>
+        android:textSize="@dimen/title"></TextView>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -49,49 +48,53 @@
     <VideoView
         android:id="@+id/vv_detail_sp"
         android:layout_width="match_parent"
-        android:layout_height="220dp">
-    </VideoView>
+        android:layout_height="220dp"></VideoView>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <Button
             android:id="@+id/btn_detail_likes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/start"
+            android:layout_marginEnd="@dimen/end"
             android:text="@string/likes"
-            android:textSize="@dimen/title"
-            android:layout_marginEnd="@dimen/end"/>
+            android:textSize="@dimen/title" />
+
         <Button
             android:id="@+id/btn_detail_star"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/start"
+            android:layout_marginEnd="@dimen/end"
             android:text="@string/star"
-            android:textSize="@dimen/title"
-            android:layout_marginEnd="@dimen/end"/>
+            android:textSize="@dimen/title" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <TextView
                 android:id="@+id/tv_detail_likes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/start"
+                android:layout_marginEnd="@dimen/end"
                 android:text="@string/likesNum"
-                android:textSize="@dimen/title"
-                android:layout_marginEnd="@dimen/end"/>
+                android:textSize="@dimen/title" />
+
             <TextView
                 android:id="@+id/tv_detail_star"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/start"
+                android:layout_marginEnd="@dimen/end"
                 android:text="@string/starNum"
-                android:textSize="@dimen/title"
-                android:layout_marginEnd="@dimen/end"/>
+                android:textSize="@dimen/title" />
         </LinearLayout>
     </LinearLayout>
 
@@ -99,14 +102,15 @@
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
+
         <TextView
             android:id="@+id/tv_detail_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/start"
             android:layout_marginTop="@dimen/switch_top"
-            android:text="视频内容简介"
             android:background="@color/seaShell"
+            android:text="视频内容简介"
             android:textColor="@color/bg_black"
             android:textSize="@dimen/common_font_size" />
     </ScrollView>

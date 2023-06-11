@@ -18,11 +18,7 @@ public class StarOpenHelper extends SQLiteOpenHelper {
     //定义表
     public static final String CREATE_STAR = "create table if not exists StarTable(" + "id integer primary key autoincrement," + "uid text," + "vid text);";
     public static final String CREATE_USER = "create table if not exists UsersTable(" + "id integer primary key autoincrement," + "phoneNumber text," + "password text," + "nikeName text);";
-    public static final String CREATE_VIDEO = "create table if not exists VideoTable(" +
-            "id integer primary key autoincrement," +
-            "title text," + "content text," + "source text," +
-            "time text," + "url text," + "star text," + "likes text," +
-            "image text," + "is_read text);";
+    public static final String CREATE_VIDEO = "create table if not exists VideoTable(" + "id integer primary key autoincrement," + "title text," + "content text," + "source text," + "time text," + "url text," + "star text," + "likes text," + "image text," + "is_read text);";
     private static final String DB_NAME = "main.db";
     private static final String TABLE_NAME = "StarTable";
     private static final int VERSION = 2;

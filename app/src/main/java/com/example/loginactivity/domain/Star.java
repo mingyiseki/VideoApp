@@ -41,10 +41,6 @@ public class Star {
 
     @Override
     public String toString() {
-        return "Star{" +
-                "id=" + id +
-                ", uid=" + uid +
-                ", vid=" + vid +
-                '}';
+        return "Star{" + "id=" + id + ", uid=" + uid + ", vid=" + vid + '}';
     }
 }

@@ -10,9 +10,7 @@ public class DashboardViewModel extends ViewModel {
 
     public DashboardViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("收藏夹\n" +
-                "请先登录账号\n" +
-                "才能启动收藏功能");
+        mText.setValue("收藏夹\n" + "请先登录账号\n" + "才能启动收藏功能");
     }
 
     public LiveData<String> getText() {

@@ -70,9 +70,7 @@ public class MainActivity extends AppCompatActivity {
         bundle.putString("uid", String.valueOf(uid));
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
-                .build();
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications).build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
 
         //往HomeFragment传值
@@ -143,23 +141,7 @@ public class MainActivity extends AppCompatActivity {
             int[] imageId = new int[]{R.drawable.img_1, R.drawable.img_2, R.drawable.img_3, R.drawable.img_4, R.drawable.img_5};
             // 设置标题
             String[] title = new String[]{"【硬核社会学】996、内卷、打工人：马克思为什么是对的", "构建一个简单视频播放器", "99%的人不知道这些渠道，能帮你找到所有想要资源！", "求求你啦~求求你啦！帮帮小菲喵！", "【东雪莲】我咋看你咋像罕见"};
-            String[] context = new String[]{"996、内卷、打工人现象的本质是什么？资本主义的底层逻辑是什么？为什么资本主义还没灭亡？2万字硬核论文，这可能是B站最学术、最硬核的马克思思想解析。\n" +
-                    "资本主义的现状与批判：\n" +
-                    "03:37     人性论\n" +
-                    "10:44    资本主义之性质\n" +
-                    "17:53    劳动分工\n" +
-                    "23:22    四种异化\n" +
-                    "35:21    剩余价值理论\n" +
-                    "40:15    为什么我们不反抗\n" +
-                    "下一期：马克思想错了吗？马克思主义的挑战与危机",
-                    "视频源代码：https://github.com/philipplackner/VideoPlayerCompose",
-                    "本期推荐：\n" +
-                            "书享家、学吧导航、科塔学术、HiPPTer、Seeseed、阿猫阿狗导航、创造狮导航、addog、199it、雪球导航、打假导航、搜狗网址导航、一个开始、虫部落\n" +
-                            "\n" +
-                            "传送：\n" +
-                            "第2期：BV1TN411d7FL",
-                    "塔菲\uD83E\uDD24\uD83E\uDD24为了你我高考不考了\uD83D\uDE24，我要成为第一个走出考场的人\uD83D\uDE21，对全国说，关注永雏塔菲，关注永雏塔菲谢谢喵！\uD83E\uDD70\uD83E\uDD70\uD83E\uDD70",
-                    "wǒ bú xìn nǐ huì zhè mē wú liáo dē bǎ wǒ zhè jù huà dú yí biàn . rú guǒ nǐ zhēn dē dú lē . wǒ zhǐ xiǎng gào sù ni . gěi wǒ diǎn zàn."};
+            String[] context = new String[]{"996、内卷、打工人现象的本质是什么？资本主义的底层逻辑是什么？为什么资本主义还没灭亡？2万字硬核论文，这可能是B站最学术、最硬核的马克思思想解析。\n" + "资本主义的现状与批判：\n" + "03:37     人性论\n" + "10:44    资本主义之性质\n" + "17:53    劳动分工\n" + "23:22    四种异化\n" + "35:21    剩余价值理论\n" + "40:15    为什么我们不反抗\n" + "下一期：马克思想错了吗？马克思主义的挑战与危机", "视频源代码：https://github.com/philipplackner/VideoPlayerCompose", "本期推荐：\n" + "书享家、学吧导航、科塔学术、HiPPTer、Seeseed、阿猫阿狗导航、创造狮导航、addog、199it、雪球导航、打假导航、搜狗网址导航、一个开始、虫部落\n" + "\n" + "传送：\n" + "第2期：BV1TN411d7FL", "塔菲\uD83E\uDD24\uD83E\uDD24为了你我高考不考了\uD83D\uDE24，我要成为第一个走出考场的人\uD83D\uDE21，对全国说，关注永雏塔菲，关注永雏塔菲谢谢喵！\uD83E\uDD70\uD83E\uDD70\uD83E\uDD70", "wǒ bú xìn nǐ huì zhè mē wú liáo dē bǎ wǒ zhè jù huà dú yí biàn . rú guǒ nǐ zhēn dē dú lē . wǒ zhǐ xiǎng gào sù ni . gěi wǒ diǎn zàn."};
             String[] source = new String[]{"学院派", "Garimi", "框框，取景", "永雏塔菲", "東雪莲"};
             //时间
             String time = new SimpleDateFormat("yyyy-MM-dd").format(new Date());

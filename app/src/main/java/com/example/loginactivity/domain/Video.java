@@ -126,14 +126,6 @@ public class Video implements Serializable, Comparable {
 
     @Override
     public String toString() {
-        return "News{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                ", source='" + source + '\'' +
-                ", time='" + time + '\'' +
-                ", image=" + image +
-                ", isRead=" + isRead +
-                '}';
+        return "News{" + "id=" + id + ", title='" + title + '\'' + ", content='" + content + '\'' + ", source='" + source + '\'' + ", time='" + time + '\'' + ", image=" + image + ", isRead=" + isRead + '}';
     }
 }

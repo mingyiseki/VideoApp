@@ -75,10 +75,7 @@ public class NotificationsFragment extends Fragment {
                     if (!uid.equals("") && uid != null && !uid.equals("0")) {
                         User user = userHelper.queryById(Long.parseLong(uid));
                         textView = view.findViewById(R.id.text_notifications);
-                        textView.setText("欢迎您的使用~" +
-                                "\n用户名:" + user.getNikeName() +
-                                "\n手机号:" + user.getPhoneNumber() +
-                                "\n收藏数:" + "42");
+                        textView.setText("欢迎您的使用~" + "\n用户名:" + user.getNikeName() + "\n手机号:" + user.getPhoneNumber() + "\n收藏数:" + "42");
                     }
                 }
             }, 500);
@@ -89,11 +86,9 @@ public class NotificationsFragment extends Fragment {
     private FragmentNotificationsBinding binding;
 
     @SuppressLint("SetTextI18n")
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        NotificationsViewModel notificationsViewModel =
-                new ViewModelProvider(this).get(NotificationsViewModel.class);
+        NotificationsViewModel notificationsViewModel = new ViewModelProvider(this).get(NotificationsViewModel.class);
 
         binding = FragmentNotificationsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();

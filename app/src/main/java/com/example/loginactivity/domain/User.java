@@ -10,7 +10,7 @@ public class User {
     public User() {
     }
 
-    public User( String phoneNumber, String password, String nikeName) {
+    public User(String phoneNumber, String password, String nikeName) {
         this.phoneNumber = phoneNumber;
         this.password = password;
         this.nikeName = nikeName;
@@ -50,11 +50,6 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", password='" + password + '\'' +
-                ", nikeName='" + nikeName + '\'' +
-                '}';
+        return "User{" + "id=" + id + ", phoneNumber='" + phoneNumber + '\'' + ", password='" + password + '\'' + ", nikeName='" + nikeName + '\'' + '}';
     }
 }

@@ -114,7 +114,7 @@ public class DetailActivity extends AppCompatActivity {
             int like = video.getLikes();
             video.setLikes(like + 1);
             videoHelper.updateById(video);
-            Log.d(TAG, "onCreate: "+video.getLikes());
+            Log.d(TAG, "onCreate: " + video.getLikes());
             likes.setText("点赞:" + video.getLikes());
         });
         starButton.setOnClickListener(v -> {
@@ -136,7 +136,7 @@ public class DetailActivity extends AppCompatActivity {
             int stars = video.getStar();
             video.setStar(stars + 1);
             videoHelper.updateById(video);
-            Log.d(TAG, "onCreate: "+video.getStar());
+            Log.d(TAG, "onCreate: " + video.getStar());
             star.setText("收藏:" + video.getStar());
             //收藏关联关系
             Star star1 = new Star();

@@ -16,12 +16,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.example.loginactivity.MainActivity;
 import com.example.loginactivity.R;
 import com.example.loginactivity.domain.User;
-import com.example.loginactivity.ui.notifications.NotificationsFragment;
 import com.example.loginactivity.util.UserOpenHelper;
 
 import java.util.List;
@@ -124,7 +122,7 @@ public class LoginActivity extends AppCompatActivity implements RadioGroup.OnChe
                         boolean flag = true;
                         boolean unLogin = true;
                         for (User user : listitem) {
-                            Log.d(TAG, "onClick: "+user);
+                            Log.d(TAG, "onClick: " + user);
                             if (Objects.equals(user.getPhoneNumber(), log_phone)) {
                                 flag = false;
                             }
@@ -180,8 +178,8 @@ public class LoginActivity extends AppCompatActivity implements RadioGroup.OnChe
 
                             //查一下id值
                             for (User user : userHelper.queryAll()) {
-                                if (Objects.equals(user.getNikeName(), user1.getNikeName())){
-                                    user1=user;
+                                if (Objects.equals(user.getNikeName(), user1.getNikeName())) {
+                                    user1 = user;
                                 }
                             }
                             Log.d(TAG, "onClick: 跳转");
