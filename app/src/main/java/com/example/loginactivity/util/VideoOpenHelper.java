@@ -16,6 +16,7 @@ import java.util.List;
 public class VideoOpenHelper extends SQLiteOpenHelper {
 
     //定义表
+    public static final String CREATE_STAR = "create table if not exists StarTable(" + "id integer primary key autoincrement," + "uid text," + "vid text);";
     public static final String CREATE_VIDEO = "create table if not exists VideoTable(" +
             "id integer primary key autoincrement," +
             "title text," + "content text," + "source text," +
@@ -147,6 +148,7 @@ public class VideoOpenHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_VIDEO);
         db.execSQL(CREATE_USER);
+        db.execSQL(CREATE_STAR);
     }
 
     @Override
@@ -155,6 +157,7 @@ public class VideoOpenHelper extends SQLiteOpenHelper {
             // 执行升级表的语句
             db.execSQL("DROP TABLE IF EXISTS VideoTable");
             db.execSQL("DROP TABLE IF EXISTS UsersTable");
+            db.execSQL("DROP TABLE IF EXISTS StarTable");
             onCreate(db);
         }
     }

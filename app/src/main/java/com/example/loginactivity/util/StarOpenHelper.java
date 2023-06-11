@@ -1,22 +1,19 @@
 package com.example.loginactivity.util;
 
-import static android.content.ContentValues.TAG;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import androidx.annotation.Nullable;
 
-import com.example.loginactivity.domain.User;
+import com.example.loginactivity.domain.Star;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserOpenHelper extends SQLiteOpenHelper {
+public class StarOpenHelper extends SQLiteOpenHelper {
 
     //定义表
     public static final String CREATE_STAR = "create table if not exists StarTable(" + "id integer primary key autoincrement," + "uid text," + "vid text);";
@@ -27,72 +24,67 @@ public class UserOpenHelper extends SQLiteOpenHelper {
             "time text," + "url text," + "star text," + "likes text," +
             "image text," + "is_read text);";
     private static final String DB_NAME = "main.db";
-    private static final String TABLE_NAME = "UsersTable";
+    private static final String TABLE_NAME = "StarTable";
     private static final int VERSION = 2;
-    private static UserOpenHelper helper;
+    private static StarOpenHelper helper;
     private SQLiteDatabase mRDB;
     private SQLiteDatabase mWDB;
 
-    public UserOpenHelper(@Nullable Context context) {
+    public StarOpenHelper(@Nullable Context context) {
         super(context, DB_NAME, null, VERSION);
     }
 
 
-    public long insert(User user) {
+    public long insert(Star star) {
         ContentValues values = new ContentValues();
-        values.put("phoneNumber", user.getPhoneNumber());
-        values.put("password", user.getPassword());
-        values.put("nikeName", user.getNikeName());
+        values.put("uid", star.getUid());
+        values.put("vid", star.getVid());
         return mWDB.insert(TABLE_NAME, null, values);
     }
 
-    public long updateById(User user) {
+    public long updateById(Star star) {
         ContentValues values = new ContentValues();
-        values.put("id", user.getId());
-        values.put("phoneNumber", user.getPhoneNumber());
-        values.put("password", user.getPassword());
-        values.put("nikeName", user.getNikeName());
-        return mWDB.update(TABLE_NAME, values, "id = ?", new String[]{String.valueOf(user.getId())});
+        values.put("id", star.getId());
+        values.put("uid", star.getUid());
+        values.put("vid", star.getVid());
+        return mWDB.update(TABLE_NAME, values, "id = ?", new String[]{String.valueOf(star.getId())});
     }
 
     public long deleteById(int id) {
         return mWDB.delete(TABLE_NAME, "id = ?", new String[]{String.valueOf(id)});
     }
 
-    public List<User> queryAll() {
-        List<User> list = new ArrayList<>();
+    public List<Star> queryAll() {
+        List<Star> list = new ArrayList<>();
         Cursor cursor = mRDB.query(TABLE_NAME, null, null, null, null, null, null);
         while (cursor.moveToNext()) {
-            User user = new User();
-            user.setId(cursor.getLong(0));
-            user.setPhoneNumber(cursor.getString(1));
-            user.setPassword(cursor.getString(2));
-            user.setNikeName(cursor.getString(3));
-            list.add(user);
+            Star star = new Star();
+            star.setId(cursor.getLong(0));
+            star.setUid(cursor.getInt(1));
+            star.setVid(cursor.getInt(2));
+            list.add(star);
         }
         return list;
     }
 
-    public User queryById(long id) {
+    public Star queryById(long id) {
         Cursor cursor = mRDB.query(TABLE_NAME, null, "id = ?", new String[]{String.valueOf(id)}, null, null, null);
-
-        User user = new User();
+        Star star = new Star();
         while (cursor.moveToNext()) {
-            user.setId(cursor.getLong(0));
-            user.setPhoneNumber(cursor.getString(1));
-            user.setPassword(cursor.getString(2));
-            user.setNikeName(cursor.getString(3));
+            star.setId(cursor.getLong(0));
+            star.setUid(cursor.getInt(1));
+            star.setVid(cursor.getInt(2));
         }
-        return user;
+        return star;
     }
 
-    public UserOpenHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+    public StarOpenHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
 
-    public static UserOpenHelper getInstance(Context context) {
+    public static StarOpenHelper getInstance(Context context) {
         if (helper == null) {
-            helper = new UserOpenHelper(context);
+            helper = new StarOpenHelper(context);
         }
         return helper;
     }

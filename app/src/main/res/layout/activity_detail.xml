@@ -49,8 +49,52 @@
     <VideoView
         android:id="@+id/vv_detail_sp"
         android:layout_width="match_parent"
-        android:layout_height="220dp" >
+        android:layout_height="220dp">
     </VideoView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_detail_likes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/start"
+            android:text="@string/likes"
+            android:textSize="@dimen/title"
+            android:layout_marginEnd="@dimen/end"/>
+        <Button
+            android:id="@+id/btn_detail_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/start"
+            android:text="@string/star"
+            android:textSize="@dimen/title"
+            android:layout_marginEnd="@dimen/end"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_detail_likes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/start"
+                android:text="@string/likesNum"
+                android:textSize="@dimen/title"
+                android:layout_marginEnd="@dimen/end"/>
+            <TextView
+                android:id="@+id/tv_detail_star"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/start"
+                android:text="@string/starNum"
+                android:textSize="@dimen/title"
+                android:layout_marginEnd="@dimen/end"/>
+        </LinearLayout>
+    </LinearLayout>
+
 
     <ScrollView
         android:layout_width="wrap_content"

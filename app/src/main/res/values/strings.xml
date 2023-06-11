@@ -25,5 +25,9 @@
     <string name="done">确&#160; &#160; &#160; 定</string>
     <string name="nickname">&#160; &#160; &#160; &#160; &#160; 昵称: </string>
     <string name="input_nickname">请输入昵称</string>
+    <string name="likes">点赞</string>
+    <string name="star">收藏</string>
+    <string name="likesNum">点赞数</string>
+    <string name="starNum">收藏数</string>
 
 </resources>

@@ -17,8 +17,10 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.loginactivity.BroadcastReceiver.MyReceiver;
 import com.example.loginactivity.databinding.ActivityMainBinding;
+import com.example.loginactivity.domain.Star;
 import com.example.loginactivity.domain.User;
 import com.example.loginactivity.domain.Video;
+import com.example.loginactivity.util.StarOpenHelper;
 import com.example.loginactivity.util.UserOpenHelper;
 import com.example.loginactivity.util.VideoOpenHelper;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private VideoOpenHelper videoHelper;
     private UserOpenHelper userHelper;
+    private StarOpenHelper starHelper;
     private static SharedPreferences sharedPreferences;
     private Long uid;
     private MyReceiver myReceiver;
@@ -94,10 +97,20 @@ public class MainActivity extends AppCompatActivity {
         if (userHelper == null) {
             userHelper = UserOpenHelper.getInstance(this);
         }
+        //从数据库获取资源
+        //2.创建/打开数据库，数据库名为StarTable.db
+        if (starHelper == null) {
+            starHelper = StarOpenHelper.getInstance(this);
+        }
+
         videoHelper.openReadLink();
         videoHelper.openWriteLink();
+
         userHelper.openReadLink();
         userHelper.openWriteLink();
+
+        starHelper.openReadLink();
+        starHelper.openWriteLink();
 
         //加载SharedPreferences
         sharedPreferences = getSharedPreferences("config", MODE_PRIVATE);
@@ -112,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
         //关闭数据库连接
         videoHelper.closeLink();
         userHelper.closeLink();
+        starHelper.closeLink();
         //注销广播
         unregisterReceiver(myReceiver);
     }
@@ -153,10 +167,13 @@ public class MainActivity extends AppCompatActivity {
             String[] url = new String[]{"http://mingyi.fun:9000/video/v1.mp4", "http://mingyi.fun:9000/video/v2.mp4", "http://mingyi.fun:9000/video/v3.mp4", "http://mingyi.fun:9000/video/v4.mp4", "http://mingyi.fun:9000/video/v5.mp4"};
             //黑色
             int blackColor = getResources().getColor(R.color.bg_black);
+            int[] likes = new int[]{1213, 221321, 31231, 4213, 52131};
+            int[] star = new int[]{12331, 21231, 3123, 412, 51232};
+
             // 将上述资源保存到表中
             for (int i = 0; i < title.length; i++) {
                 //将数据插入到数据库对应的表中
-                Video video = new Video(title[i], context[i], source[i], time, url[i], imageId[i], blackColor);
+                Video video = new Video(title[i], context[i], source[i], time, url[i], star[i], likes[i], imageId[i], blackColor);
                 if (videoHelper.insert(video) > 0) {
                     Toast.makeText(this, "添加数据:" + video.getTitle() + ",请重新加载app", Toast.LENGTH_SHORT).show();
                 } else {
@@ -174,6 +191,15 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "添加用户失败", Toast.LENGTH_LONG).show();
             }
         }
+        if (starHelper.queryAll().isEmpty()) {
+            Log.d(TAG, "Resource: 进入添加关联关系");
+            Star star = new Star(1, 3);
+            if (starHelper.insert(star) > 0) {
+                Toast.makeText(this, "添加收藏:" + star + ",请重新加载app", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "添加收藏失败", Toast.LENGTH_LONG).show();
+            }
+        }
 
         String readId = sharedPreferences.getString("readId", "");
         HashSet<String> array = new HashSet<>();
@@ -182,6 +208,7 @@ public class MainActivity extends AppCompatActivity {
                 array.add(s);
             }
         }
+
         for (String s : array) {
             int grey = getResources().getColor(R.color.md_blue_grey_100);
             long id = Long.parseLong(s);
