@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/floralwhite"
+    android:orientation="vertical"
+    tools:context=".login.LoginActivity">
+
+    <RadioGroup
+        android:id="@+id/rg_login"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_layout_height"
+        android:layout_marginStart="@dimen/start"
+        android:layout_marginTop="@dimen/top"
+        android:layout_marginEnd="@dimen/end"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_password"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="@string/login_by_password"
+            android:textSize="@dimen/button_font_size" />
+
+        <RadioButton
+            android:id="@+id/rb_register"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/register_by_verify_code"
+            android:textSize="@dimen/button_font_size" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:id="@+id/ll_login_list1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_layout_height"
+        android:layout_marginStart="@dimen/start"
+        android:layout_marginTop="@dimen/switch_top"
+        android:layout_marginEnd="@dimen/end"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_login_list1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/phone_number"
+            android:textColor="@color/bg_black"
+            android:textSize="@dimen/common_font_size" />
+
+        <EditText
+            android:id="@+id/et_login_list1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/blank"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:hint="@string/input_phone_number"
+            android:inputType="number"
+            android:maxLength="11"
+            android:textColor="@color/bg_black"
+            android:textColorHint="@color/grey"
+            android:textSize="@dimen/common_font_size" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_login_list2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_layout_height"
+        android:layout_marginStart="@dimen/start"
+        android:layout_marginEnd="@dimen/end"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_login_list2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/login_password"
+            android:textColor="@color/bg_black"
+            android:textSize="@dimen/common_font_size" />
+
+        <EditText
+            android:id="@+id/et_login_list2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/blank"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:hint="@string/input_password"
+            android:maxLength="11"
+            android:textColor="@color/bg_black"
+            android:textColorHint="@color/grey"
+            android:textSize="@dimen/common_font_size" />
+        <Button
+            android:id="@+id/btn_get_verifycode"
+            android:visibility="gone"
+            android:layout_marginEnd="@dimen/end"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/get_verifycode"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/ll_login_list3"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_layout_height"
+        android:layout_marginStart="@dimen/start"
+        android:layout_marginEnd="@dimen/end"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_login_list3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/nickname"
+            android:textColor="@color/bg_black"
+            android:textSize="@dimen/common_font_size" />
+
+        <EditText
+            android:id="@+id/et_login_list3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/blank"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:hint="@string/input_nickname"
+            android:maxLength="11"
+            android:textColor="@color/bg_black"
+            android:textColorHint="@color/grey"
+            android:textSize="@dimen/common_font_size" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/ll_login_list4"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_layout_height"
+        android:layout_marginStart="@dimen/start"
+        android:layout_marginEnd="@dimen/end"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_login_list4"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/verify_code"
+            android:textColor="@color/bg_black"
+            android:textSize="@dimen/common_font_size" />
+
+        <EditText
+            android:id="@+id/et_login_list4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/blank"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:hint="@string/input_verify_code"
+            android:maxLength="11"
+            android:textColor="@color/bg_black"
+            android:textColorHint="@color/grey"
+            android:textSize="@dimen/common_font_size" />
+
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/ck_remember"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/start"
+        android:text="@string/remember_password"
+        android:textColor="@color/bg_black"
+        android:textSize="@dimen/common_font_size" />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/button_start"
+        android:layout_marginTop="@dimen/switch_top"
+        android:layout_marginEnd="@dimen/button_end"
+        android:text="@string/login"
+        android:textSize="@dimen/button_font_size" />
+
+</LinearLayout>
