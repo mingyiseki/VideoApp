@@ -91,11 +91,11 @@ public class addForm extends AppCompatActivity {
                 Video video = new Video(title.getText().toString(), content.getText().toString(), userNickName, time, url.getText().toString(), 0, 0, Integer.parseInt(image.getText().toString()), blackColor);
                 if (videoHelper.insert(video) > 0) {
                     //发送自定义广播
-                    IntentFilter intentFilter = new IntentFilter("addVideo");
+                    IntentFilter intentFilter = new IntentFilter("broadcast");
                     myReceiver = new MyReceiver();
-                    Intent intent = new Intent("addVideo");
+                    Intent intent = new Intent("broadcast");
                     //直接发送广播
-                    intent.putExtra("videoInfo", "有人投稿了新视频，请查看");
+                    intent.putExtra("broadcast", "有人投稿了新视频，请查看");
                     registerReceiver(myReceiver, intentFilter);
                     sendBroadcast(intent);
                     Log.d(TAG, "添加数据:" + video);

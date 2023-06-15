@@ -22,6 +22,12 @@ public class MyReceiver extends BroadcastReceiver {
             Toast.makeText(context, "注册成功," + nickName + "欢迎您的访问", Toast.LENGTH_SHORT).show();
             Log.d(TAG, "接收到注册成功,用户id: " + nickName);
         }
+        //公共广播
+        if ("broadcast".equals(intent.getAction())) {
+            String broadcast = intent.getStringExtra("broadcast");
+            Toast.makeText(context, broadcast, Toast.LENGTH_SHORT).show();
+            Log.d(TAG, "接收到broadcast: " + broadcast);
+        }
     }
 }
 

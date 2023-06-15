@@ -46,6 +46,7 @@
             <intent-filter>
                 <action android:name="loginSuccess" />
                 <action android:name="registerSuccess" />
+                <action android:name="broadcast" />
             </intent-filter>
         </receiver>
     </application>
