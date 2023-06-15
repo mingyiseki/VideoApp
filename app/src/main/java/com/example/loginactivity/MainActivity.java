@@ -161,8 +161,8 @@ public class MainActivity extends AppCompatActivity {
             String[] url = new String[]{"http://mingyi.fun:9000/video/v1.mp4", "http://mingyi.fun:9000/video/v2.mp4", "http://mingyi.fun:9000/video/v3.mp4", "http://mingyi.fun:9000/video/v4.mp4", "http://mingyi.fun:9000/video/v5.mp4"};
             //黑色
             int blackColor = getResources().getColor(R.color.bg_black);
-            int[] likes = new int[]{1213, 221321, 31231, 4213, 52131};
-            int[] star = new int[]{12331, 21231, 3123, 412, 51232};
+            int[] likes = new int[]{95, 104, 93, 3, 5};
+            int[] star = new int[]{65, 64, 114514, 64, 64};
 
             // 将上述资源保存到表中
             for (int i = 0; i < title.length; i++) {

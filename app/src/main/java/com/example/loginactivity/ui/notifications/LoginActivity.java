@@ -22,10 +22,12 @@ import com.example.loginactivity.R;
 import com.example.loginactivity.domain.User;
 import com.example.loginactivity.util.UserOpenHelper;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.List;
 import java.util.Objects;
 
-public class LoginActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener, View.OnClickListener {
+public class LoginActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener {
 
 
     private LinearLayout ll_login_list1;
@@ -60,6 +62,7 @@ public class LoginActivity extends AppCompatActivity implements RadioGroup.OnChe
     private String reg_nikeName;
     private String reg_password;
     private int isLong;
+    private String verifycode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,9 +100,9 @@ public class LoginActivity extends AppCompatActivity implements RadioGroup.OnChe
 
         Intent intent = getIntent();
 
-        isLong = intent.getIntExtra("long",R.id.rb_password);
-        if (isLong==R.id.rb_register){
-            this.checkedId =  R.id.rb_register;
+        isLong = intent.getIntExtra("long", R.id.rb_password);
+        if (isLong == R.id.rb_register) {
+            this.checkedId = R.id.rb_register;
             tv_login_list2.setText(getString(R.string.verify_code));
             et_login_list2.setHint(getString(R.string.input_verify_code));
             ll_login_list3.setVisibility(View.VISIBLE);
@@ -126,7 +129,34 @@ public class LoginActivity extends AppCompatActivity implements RadioGroup.OnChe
         //给rg_login设置监听器
         rg_login.setOnCheckedChangeListener(this);
 
-        btn_get_verifycode.setOnClickListener(this);
+        btn_get_verifycode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (v.getId() == R.id.btn_get_verifycode) {
+                    if (et_login_list1.getText().toString().length() < 11) {
+                        Toast.makeText(getApplication(), "请输入正确的手机号码", Toast.LENGTH_SHORT).show();
+                    } else {
+                        boolean flag = true;
+                        for (User user : listitem) {
+                            if (Objects.equals(user.getPhoneNumber(), et_login_list1.getText().toString())) {
+                                Toast.makeText(getApplication(), "手机号已被注册", Toast.LENGTH_SHORT).show();
+                                flag = false;
+                            }
+                        }
+                        if (flag) {
+                            try {
+                                SecureRandom secureRandom = SecureRandom.getInstance("SHA1PRNG");
+                                secureRandom.setSeed(10000L);
+                                verifycode = String.valueOf(secureRandom.nextInt(10000));
+                                Toast.makeText(getApplication(), "验证码: " + verifycode, Toast.LENGTH_SHORT).show();
+                            } catch (NoSuchAlgorithmException e) {
+                                throw new RuntimeException(e);
+                            }
+                        }
+                    }
+                }
+            }
+        });
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -170,7 +200,7 @@ public class LoginActivity extends AppCompatActivity implements RadioGroup.OnChe
                     reg_nikeName = et_login_list3.getText().toString();
                     reg_password = et_login_list4.getText().toString();
                     Log.d(TAG, "onClick: 注册");
-                    if (reg_code.contains("1") || reg_code.isEmpty()) {
+                    if (!Objects.equals(reg_code, verifycode) || reg_code.isEmpty()) {
                         Toast.makeText(getApplication(), "验证码错误", Toast.LENGTH_SHORT).show();
                     } else {
                         boolean flag = true;
@@ -251,23 +281,6 @@ public class LoginActivity extends AppCompatActivity implements RadioGroup.OnChe
         }
     }
 
-
-    @Override
-    public void onClick(View v) {
-        if (checkedId == R.id.rb_register) {
-            if (v.getId() == R.id.btn_get_verifycode) {
-                if (reg_phone.length() < 11) {
-                    Toast.makeText(this, "请输入正确的手机号码", Toast.LENGTH_SHORT).show();
-                } else {
-                    for (User user : listitem) {
-                        if (Objects.equals(user.getPhoneNumber(), reg_phone)) {
-                            Toast.makeText(this, "手机号已被注册", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                }
-            }
-        }
-    }
 
     @Override
     protected void onStop() {

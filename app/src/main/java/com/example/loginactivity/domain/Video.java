@@ -27,7 +27,6 @@ public class Video implements Serializable, Comparable {
     }
 
 
-
     public String getUrl() {
         return url;
     }
@@ -113,7 +112,9 @@ public class Video implements Serializable, Comparable {
 
     @Override
     public int compareTo(Object o) {
-        return (int) ( ((Video) o).getLikes()-this.getLikes());
+        int compare = ((Video) o).getLikes() - this.getLikes();
+        compare = compare + ((Video) o).getStar() * 10 - this.getStar() * 10;
+        return compare;
     }
 
     @Override
