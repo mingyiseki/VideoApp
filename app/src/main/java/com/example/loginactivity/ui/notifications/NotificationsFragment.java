@@ -24,7 +24,6 @@ import com.example.loginactivity.R;
 import com.example.loginactivity.databinding.FragmentNotificationsBinding;
 import com.example.loginactivity.domain.Star;
 import com.example.loginactivity.domain.User;
-import com.example.loginactivity.login.LoginActivity;
 import com.example.loginactivity.util.StarOpenHelper;
 import com.example.loginactivity.util.UserOpenHelper;
 

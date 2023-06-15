@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/floralwhite"
     android:orientation="vertical"
-    tools:context=".login.LoginActivity">
+    tools:context=".ui.notifications.LoginActivity">
 
     <RadioGroup
         android:id="@+id/rg_login"

@@ -1,4 +1,4 @@
-package com.example.loginactivity.login;
+package com.example.loginactivity.ui.notifications;
 
 import static android.content.ContentValues.TAG;
 
@@ -147,7 +147,6 @@ public class LoginActivity extends AppCompatActivity implements RadioGroup.OnChe
                             if (Objects.equals(user.getPhoneNumber(), log_phone) && Objects.equals(user.getPassword(), log_password)) {
                                 unLogin = false;
                                 //登录成功通报表扬
-
                                 Intent intent = new Intent("loginSuccess");
                                 intent.putExtra("nickName", user.getNikeName());
                                 Log.d(TAG, "onClick: 发送广播");
