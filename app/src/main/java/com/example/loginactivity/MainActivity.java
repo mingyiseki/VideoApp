@@ -42,6 +42,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.i(TAG, "title:如何破解迷茫，找到生活方向？");
+        Log.i(TAG, "content:集合了年轻人最关注的难题，从克服自卑、消除内耗，到如何戒掉手机，爱上学习，应有尽有，曾帮助了一些朋友，今天整理出来给大家，方便按需查找，喜欢的话不妨三连起来，防止下次要看找不到啦！\n" +
+                "大家好，先感谢你们的三连支持呀！\n" +
+                "\n" +
+                "我把这一年做的干货视频基本都整理出来了，覆盖范围较广，希望能解决你们的烦恼，成为一个比较全面的工具检索~不过这只是我内容的冰山一角，我还会输出许多对大家有用的干货、观点解决等，这波关注不亏（捂嘴笑\n" +
+                "\n" +
+                "对啦，也可以关注我的公众号「铁木君」，回复相应关键词，能获取许多免费又好用的资源哦~比如：\n" +
+                "\n" +
+                "回复“读书”，我给你分享3000本精选书籍+铁木君私人高分书单。\n" +
+                "回复“技能”，送你我这些年购买、收集的写作、软件基操、摄影等珍贵教程");
+        Log.i(TAG, "url: http://mingyi.fun:9000/video/v6.mp4");
+        Log.i(TAG, "image:"+R.drawable.img);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
