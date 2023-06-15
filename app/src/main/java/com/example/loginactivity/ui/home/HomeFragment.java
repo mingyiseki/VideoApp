@@ -55,6 +55,7 @@ public class HomeFragment extends Fragment {
 
         if (listitem == null) {
             listitem = helper.queryAll();
+            Collections.sort(listitem);
         }
 
         //把信息加入到Adapter

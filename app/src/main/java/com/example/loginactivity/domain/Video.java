@@ -113,7 +113,7 @@ public class Video implements Serializable, Comparable {
 
     @Override
     public int compareTo(Object o) {
-        return (int) (this.id - ((Video) o).getId());
+        return (int) ( ((Video) o).getLikes()-this.getLikes());
     }
 
     @Override

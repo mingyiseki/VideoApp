@@ -62,7 +62,7 @@ public class ListViewAdapter extends ArrayAdapter<Video> {
         try {
             imageView.setImageResource(video.getImage());
         } catch (Exception e) {
-            imageView.setImageResource(R.drawable.ic_launcher_background);
+            imageView.setImageResource(R.drawable.image);
         }
         title.setText(video.getTitle());
         content.setText(video.getContent());
