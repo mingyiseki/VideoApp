@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.MediaController;
 import android.widget.TextView;
@@ -19,6 +20,7 @@ import com.example.loginactivity.MainActivity;
 import com.example.loginactivity.R;
 import com.example.loginactivity.domain.Star;
 import com.example.loginactivity.domain.Video;
+import com.example.loginactivity.servise.DownloadService;
 import com.example.loginactivity.util.StarOpenHelper;
 import com.example.loginactivity.util.TimeUtil;
 import com.example.loginactivity.util.UserOpenHelper;
@@ -35,6 +37,7 @@ public class DetailActivity extends AppCompatActivity {
     private UserOpenHelper userHelper;
     private StarOpenHelper starHelper;
     private static SharedPreferences sharedPreferences;
+    private TextView download;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -71,6 +74,17 @@ public class DetailActivity extends AppCompatActivity {
 
         Button likesButton = findViewById(R.id.btn_detail_likes);
         Button starButton = findViewById(R.id.btn_detail_star);
+        download=findViewById(R.id.btn_detail_download);
+        download.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String text = video.toString(); // 替换为你要下载的文本
+                Intent serviceIntent = new Intent(getApplication(), DownloadService.class);
+                serviceIntent.putExtra("text", text);
+                serviceIntent.putExtra("title", "视频" + video.getTitle() + ".txt");
+                startService(serviceIntent);
+            }
+        });
 
         //从数据库获取资源
         //1.创建/打开数据库，数据库名为VideoTable.db

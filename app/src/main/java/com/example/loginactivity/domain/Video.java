@@ -118,6 +118,17 @@ public class Video implements Serializable, Comparable {
 
     @Override
     public String toString() {
-        return "News{" + "id=" + id + ", title='" + title + '\'' + ", content='" + content + '\'' + ", source='" + source + '\'' + ", time='" + time + '\'' + ", image=" + image + ", isRead=" + isRead + '}';
+        return "视频内容{" +
+                "  \n编号=" + id +
+                ", \n标题='" + title + '\'' +
+                ", \n内容='" + content + '\'' +
+                ", \nup者='" + source + '\'' +
+                ", \n发行时间='" + time + '\'' +
+                ", \n视频链接='" + url + '\'' +
+                ", \n收藏=" + star +
+                ", \n点赞=" + likes +
+                ", \n图片编号=" + image +
+                ", \n是否已读=" + isRead +
+                "\n}";
     }
 }

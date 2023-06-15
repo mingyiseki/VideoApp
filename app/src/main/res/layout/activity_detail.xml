@@ -100,20 +100,38 @@
 
 
     <ScrollView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/tv_detail_content"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/start"
-            android:layout_marginTop="@dimen/switch_top"
-            android:background="@color/seaShell"
-            android:text="视频内容简介"
-            android:textColor="@color/bg_black"
-            android:textSize="@dimen/common_font_size" />
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_detail_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/start"
+                android:layout_marginTop="@dimen/switch_top"
+                android:background="@color/seaShell"
+                android:text="视频内容简介"
+                android:textColor="@color/bg_black"
+                android:textSize="@dimen/common_font_size" />
+
+            <TextView
+                android:id="@+id/btn_detail_download"
+                android:layout_width="200dp"
+                android:layout_marginStart="@dimen/start"
+                android:layout_marginEnd="@dimen/end"
+                android:layout_height="wrap_content"
+                android:text="点击链接下载视频详情"
+                android:textColor="@color/md_blue_A100"/>
+
+        </LinearLayout>
     </ScrollView>
+
+
+
 
 
 </LinearLayout>
