@@ -59,6 +59,7 @@ public class LoginActivity extends AppCompatActivity implements RadioGroup.OnChe
     private String reg_code;
     private String reg_nikeName;
     private String reg_password;
+    private int isLong;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,9 +90,26 @@ public class LoginActivity extends AppCompatActivity implements RadioGroup.OnChe
 
 
         btn_get_verifycode = findViewById(R.id.btn_get_verifycode);
+
         btn_login = findViewById(R.id.btn_login);
 
         ck_remember = findViewById(R.id.ck_remember);
+
+        Intent intent = getIntent();
+
+        isLong = intent.getIntExtra("long",R.id.rb_password);
+        if (isLong==R.id.rb_register){
+            this.checkedId =  R.id.rb_register;
+            tv_login_list2.setText(getString(R.string.verify_code));
+            et_login_list2.setHint(getString(R.string.input_verify_code));
+            ll_login_list3.setVisibility(View.VISIBLE);
+            ll_login_list4.setVisibility(View.VISIBLE);
+            tv_login_list4.setText(R.string.input_new_password);
+            et_login_list4.setHint(R.string.input_new_password_hint);
+            btn_get_verifycode.setVisibility(View.VISIBLE);
+            btn_login.setText(getString(R.string.register));
+            ck_remember.setVisibility(View.GONE);
+        }
 
         //从数据库获取资源
         //1.创建/打开数据库，数据库名为NewsTable.db
@@ -195,7 +213,6 @@ public class LoginActivity extends AppCompatActivity implements RadioGroup.OnChe
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d(TAG, "onStart: ");
         //从数据库获取资源
         //创建/打开数据库，数据库名为UserTable.db
         if (userHelper == null) {
@@ -239,7 +256,6 @@ public class LoginActivity extends AppCompatActivity implements RadioGroup.OnChe
     @Override
     public void onClick(View v) {
         if (checkedId == R.id.rb_register) {
-
             if (v.getId() == R.id.btn_get_verifycode) {
                 if (reg_phone.length() < 11) {
                     Toast.makeText(this, "请输入正确的手机号码", Toast.LENGTH_SHORT).show();

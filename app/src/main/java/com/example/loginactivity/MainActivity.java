@@ -166,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (userHelper.queryAll().isEmpty()) {
             Log.d(TAG, "Resource: 进入添加用户");
-            User user = new User("13408890904", "admin", "管理员");
+            User user = new User("13408890905", "admin", "管理员");
             if (userHelper.insert(user) > 0) {
                 Toast.makeText(this, "添加用户:" + user.getNikeName() + ",请重新加载app", Toast.LENGTH_SHORT).show();
             } else {

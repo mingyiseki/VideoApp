@@ -59,7 +59,11 @@ public class ListViewAdapter extends ArrayAdapter<Video> {
         TextView from = convertView.findViewById(R.id.tv_list1_from);
         TextView time = convertView.findViewById(R.id.tv_list1_time);
         Video video = listitem.get(position);
-        imageView.setImageResource(video.getImage());
+        try {
+            imageView.setImageResource(video.getImage());
+        } catch (Exception e) {
+            imageView.setImageResource(R.drawable.ic_launcher_background);
+        }
         title.setText(video.getTitle());
         content.setText(video.getContent());
         from.setText(video.getSource());

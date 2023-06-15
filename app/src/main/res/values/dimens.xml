@@ -15,5 +15,5 @@
     <dimen name="button_start">60dp</dimen>
     <dimen name="button_end">60dp</dimen>
     <dimen name="blank">8dp</dimen>
-    <dimen name="title">16sp</dimen>
+    <dimen name="title">25sp</dimen>
 </resources>

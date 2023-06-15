@@ -26,15 +26,7 @@ public class Video implements Serializable, Comparable {
         this.isRead = isRead;
     }
 
-    public Video(String title, String content, String source, String time, String url, int image, int isRead) {
-        this.title = title;
-        this.content = content;
-        this.source = source;
-        this.time = time;
-        this.url = url;
-        this.image = image;
-        this.isRead = isRead;
-    }
+
 
     public String getUrl() {
         return url;
