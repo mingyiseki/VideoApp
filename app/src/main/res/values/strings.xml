@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">榴菱丝视频</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home">首页</string>
+    <string name="title_dashboard">收藏</string>
+    <string name="title_notifications">个人</string>
     <string name="login_register">登录/注册</string>
 
     <string name="login_by_password">密码登录</string>

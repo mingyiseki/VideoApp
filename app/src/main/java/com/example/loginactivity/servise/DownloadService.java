@@ -26,24 +26,28 @@ public class DownloadService extends Service {
         // 这可以是使用线程、异步任务等方式来下载内容title
         text = intent.getStringExtra("text");
         title = intent.getStringExtra("title");
-        createTxtFile(text);
+        //下载文件
+        String path = createTxtFile(text);
         //发送自定义广播
         IntentFilter intentFilter = new IntentFilter("broadcast");
         myReceiver = new MyReceiver();
         Intent intentReceiver = new Intent("broadcast");
         //直接发送广播
-        intentReceiver.putExtra("broadcast", "请前往路径: /storage/emulated/0/video 查看新闻内容详情");
+        intentReceiver.putExtra("broadcast", "请前往路径: " + path + " 查看新闻内容详情");
         registerReceiver(myReceiver, intentFilter);
         sendBroadcast(intentReceiver);
+
         return START_STICKY; // 指示系统在服务被终止后重新启动服务
     }
 
-    private void createTxtFile(String text) {
+    private String createTxtFile(String text) {
+        String path = "";
         try {
             // 指定文件保存路径和文件名
             File directory = new File(Environment.getExternalStorageDirectory(), "/video");
             System.out.println(Environment.getExternalStorageDirectory());
             System.out.println(directory.getPath());
+            path = directory.getPath();
             if (!directory.exists()) {
                 directory.mkdirs(); // 如果目录不存在，则创建目录
             }
@@ -60,6 +64,7 @@ public class DownloadService extends Service {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return path;
     }
 
     private void startDownload(File file) {

@@ -74,7 +74,7 @@ public class DetailActivity extends AppCompatActivity {
 
         Button likesButton = findViewById(R.id.btn_detail_likes);
         Button starButton = findViewById(R.id.btn_detail_star);
-        download=findViewById(R.id.btn_detail_download);
+        download = findViewById(R.id.btn_detail_download);
         download.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -124,13 +124,14 @@ public class DetailActivity extends AppCompatActivity {
             }
             videoHelper.openReadLink();
             videoHelper.openWriteLink();
-
+            //点赞数+1
             int like = video.getLikes();
             video.setLikes(like + 1);
             videoHelper.updateById(video);
             Log.d(TAG, "onCreate: " + video.getLikes());
             likes.setText("点赞:" + video.getLikes());
         });
+
         starButton.setOnClickListener(v -> {
             //从数据库获取资源
             //创建/打开数据库，数据库名为StarTable.db

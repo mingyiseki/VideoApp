@@ -102,6 +102,7 @@ public class LoginActivity extends AppCompatActivity implements RadioGroup.OnChe
 
         isLong = intent.getIntExtra("long", R.id.rb_password);
         if (isLong == R.id.rb_register) {
+            rb_register.toggle();
             this.checkedId = R.id.rb_register;
             tv_login_list2.setText(getString(R.string.verify_code));
             et_login_list2.setHint(getString(R.string.input_verify_code));
